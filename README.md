@@ -1,17 +1,12 @@
 # 2023.1.DW2A4
 Repositório modelo para o projeto da disciplina de 2023.1 - DW2A4 - do IFSP 
 
-Aluno Nome Sobrenome  <mail@aluno.ifsp.edu.br>  \
+Aluno: Gustavo Delbon Souza  <gustavo.delbon@aluno.ifsp.edu.br>  \
 Prof. Quirino         <luiz.quirino@ifsp.edu.br>
 
 ## Descrição das etapas implementadas :
-- etapa 1 - xxx%
-- etapa 2 - xxx%
-- etapa 3 - xxx%
-- ...
-  Use o readme para documentar o andamento do seu projeto.
+- etapa 1 - 30%
+    - adicionadas funções iniciais de exibir tarefas e adicionar tarefas.
 
 ## Alterações realizadas frente ao modelo de referência apresentado:
-- alteração xyz;
-- alteração xpto;
-- ...
+- teste
