@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from "react";
 import axios from 'axios';
-import {v4 as uuidv4} from "uuid";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
-import Header from "./components/Header";
-import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
+import Header from "./components/Header";
 import TaskDetails from "./components/TaskDetails";
+import Tasks from "./components/Tasks";
 
-import "./App.css";
+import "./components/GlobalStyle.css";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -29,18 +29,20 @@ const App = () => {
 			return task;
 		});
 
-	  setTasks(newTasks);
+    setTasks(newTasks);
 	};
 
   const handleTaskAddition = (taskTitle) => {
-    const newTasks = [...tasks, {
-        id: uuidv4(),
-        title: taskTitle,
-        completed: false,
-      },
-    ];
+    if (taskTitle !== ""){
+        const newTasks = [...tasks, {
+          id: uuidv4(),
+          title: taskTitle,
+          completed: false,
+        },
+      ];
 
-    setTasks(newTasks);
+      setTasks(newTasks);
+    }
   };
 
   const handleTaskDeletion = (taskId) => {
@@ -53,14 +55,16 @@ const App = () => {
     <Router>
       <div className="container">
         <Header />
-        <Route path="/" exact render={() => (
-          <>
-            <AddTask handleTaskAddition={handleTaskAddition}/>
-            <Tasks tasks={tasks} handleTaskClick={handleTaskClick} handleTaskDeletion={handleTaskDeletion}/>
-          </>
-        )}/>
+        <Routes>
+          <Route path="/" element={(
+            <>
+              <AddTask handleTaskAddition={handleTaskAddition}/>
+              <Tasks tasks={tasks} handleTaskClick={handleTaskClick} handleTaskDeletion={handleTaskDeletion}/>
+            </>
+          )}/>
 
-        <Route path="/:taskTitle" exact component={TaskDetails} />
+          <Route path="/:taskTitle" element={<TaskDetails />} />
+        </Routes>
       </div>
     </Router>
   );

@@ -1,20 +1,20 @@
 import React from "react";
-import {useHistory, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 import Button from "./Button";
 
-import "./TaskDetails.css";
+import "./GlobalStyle.css";
 
 const TaskDetails = () => {
 	const params = useParams();
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	const handleBackButtonClick = () => {
-		history.goBack();
+		navigate(-1);
 	};
 
 	return (
-		<>
+		<div>
 			<div className="back-button-container">
 				<Button onClick={handleBackButtonClick}>Voltar</Button>
 			</div>
@@ -25,7 +25,7 @@ const TaskDetails = () => {
 					minima eius magnam culpa sequi explicabo.
 				</p>
 			</div>
-		</>
+		</div>
 	);
 };
 

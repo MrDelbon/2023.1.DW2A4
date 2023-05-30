@@ -1,18 +1,20 @@
 import React from "react";
 import {CgClose, CgInfo} from "react-icons/cg";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
-import "./Task.css"
+import "./GlobalStyle.css";
 
 const Task = ({task, handleTaskClick, handleTaskDeletion}) => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
 	const handleTaskDetailsClick = () => {
-		history.push(`/${task.title}`);
+		navigate(`/${task.title}`);
 	};
 
+    const taskContainerClass = task.completed ? 'task-container completed' : 'task-container';
+
     return (
-        <div className="task-container" style={task.completed ? {borderLeft: "6px solid chartreuse"} : {}}>
+        <div className={taskContainerClass}>
             <div className="task-title" onClick={() => handleTaskClick(task.id)}>
                 {task.title}
             </div>
