@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -14,27 +14,31 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-		const fetchTasks = async () => {
-			const {data} = await axios.get("https://jsonplaceholder.cypress.io/todos?_limit=10");
+    const fetchTasks = async () => {
+      const { data } = await axios.get(
+        "https://jsonplaceholder.cypress.io/todos?_limit=10"
+      );
       setTasks(data);
-		};
+    };
 
-		fetchTasks();
-	}, []);
+    fetchTasks();
+  }, []);
 
   const handleTaskClick = (taskId) => {
-		const newTasks = tasks.map((task) => {
-			if (task.id === taskId) return { ...task, completed: !task.completed };
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) return { ...task, completed: !task.completed };
 
-			return task;
-		});
+      return task;
+    });
 
     setTasks(newTasks);
-	};
+  };
 
   const handleTaskAddition = (taskTitle) => {
-    if (taskTitle !== ""){
-        const newTasks = [...tasks, {
+    if (taskTitle !== "") {
+      const newTasks = [
+        ...tasks,
+        {
           id: uuidv4(),
           title: taskTitle,
           completed: false,
@@ -46,22 +50,29 @@ const App = () => {
   };
 
   const handleTaskDeletion = (taskId) => {
-		const newTasks = tasks.filter((task) => task.id !== taskId);
+    const newTasks = tasks.filter((task) => task.id !== taskId);
 
-		setTasks(newTasks);
-	};
+    setTasks(newTasks);
+  };
 
   return (
     <Router>
       <div className="container">
         <Header />
         <Routes>
-          <Route path="/" element={(
-            <>
-              <AddTask handleTaskAddition={handleTaskAddition}/>
-              <Tasks tasks={tasks} handleTaskClick={handleTaskClick} handleTaskDeletion={handleTaskDeletion}/>
-            </>
-          )}/>
+          <Route
+            path="/"
+            element={
+              <>
+                <AddTask handleTaskAddition={handleTaskAddition} />
+                <Tasks
+                  tasks={tasks}
+                  handleTaskClick={handleTaskClick}
+                  handleTaskDeletion={handleTaskDeletion}
+                />
+              </>
+            }
+          />
 
           <Route path="/:taskTitle" element={<TaskDetails />} />
         </Routes>
