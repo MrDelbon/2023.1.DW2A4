@@ -51,7 +51,7 @@ const App = () => {
     } else {
       toast.error("OPA, TAREFA SEM NOME!", {
         position: "top-right",
-        autoClose: 1000,
+        autoClose: 1200,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
