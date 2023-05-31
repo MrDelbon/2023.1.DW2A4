@@ -11,4 +11,10 @@ Prof. Quirino         <luiz.quirino@ifsp.edu.br>
 - etapa 2 - 80% (28/05)
     - finalização da codificação do projeto base
 
+- etapa 3 - 100% (30/05)
+    - coreção de erros, atualização de dependências e validaç
+
 ## Alterações realizadas frente ao modelo de referência apresentado:
+- atualização do router de V5 para V6
+- criação de um CSS global
+- implementação de validação do campo do input para não aceitar dados vazios
