@@ -5,13 +5,13 @@ Aluno: Gustavo Delbon Souza  <gustavo.delbon@aluno.ifsp.edu.br>  \
 Prof. Quirino         <luiz.quirino@ifsp.edu.br>
 
 ## Descrição das etapas implementadas :
-- etapa 1 - 30% (27/05)
+- etapa 1 - 50% (27/05)
     - adicionadas funções iniciais de exibir tarefas e adicionar tarefas.
 
-- etapa 2 - 80% (28/05)
+- etapa 2 - 100% (28/05)
     - finalização da codificação do projeto base
 
-- etapa 3 - 100% (30/05)
+- etapa 3 - 110% (30/05)
     - coreção de erros, atualização de dependências e validaç
 
 ## Alterações realizadas frente ao modelo de referência apresentado:
