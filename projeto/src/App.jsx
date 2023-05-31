@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
 
 import AddTask from "./components/AddTask";
 import Header from "./components/Header";
@@ -9,6 +10,7 @@ import TaskDetails from "./components/TaskDetails";
 import Tasks from "./components/Tasks";
 
 import "./components/GlobalStyle.css";
+import "react-toastify/dist/ReactToastify.min.css";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -46,6 +48,17 @@ const App = () => {
       ];
 
       setTasks(newTasks);
+    } else {
+      toast.error("OPA, TAREFA SEM NOME!", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   };
 
@@ -70,6 +83,7 @@ const App = () => {
                   handleTaskClick={handleTaskClick}
                   handleTaskDeletion={handleTaskDeletion}
                 />
+                <ToastContainer />
               </>
             }
           />
