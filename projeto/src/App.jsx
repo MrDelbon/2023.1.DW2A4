@@ -1,16 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
+import { v4 as uuidv4 } from "uuid";
 
 import AddTask from "./components/AddTask";
 import Header from "./components/Header";
 import TaskDetails from "./components/TaskDetails";
 import Tasks from "./components/Tasks";
 
-import "./components/GlobalStyle.css";
 import "react-toastify/dist/ReactToastify.min.css";
+import "./components/GlobalStyle.css";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -18,7 +18,7 @@ const App = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       const { data } = await axios.get(
-        "https://my-json-server.typicode.com/luizfpq/tads-api-server"
+        "https://jsonplaceholder.cypress.io/todos?_limit=10"
       );
       setTasks(data);
     };
